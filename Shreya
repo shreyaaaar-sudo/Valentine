@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Betii ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff5f9e, #ff9a9e);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 35px;
+      border-radius: 25px;
+      max-width: 420px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    button {
+      background: white;
+      color: #ff3f81;
+      border: none;
+      padding: 12px 24px;
+      margin: 10px;
+      border-radius: 30px;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Floating hearts & balloons */
+    .float {
+      position: absolute;
+      bottom: -50px;
+      font-size: 24px;
+      animation: rise 8s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-110vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Heyy my betii ❤️</h1>
+    <p>Will you be my Valentine’s? 💕</p>
+
+    <button onclick="yesClicked()">Yes 💖</button>
+    <button onclick="noClicked()">No 🙄</button>
+
+    <div id="message" class="hidden"></div>
+  </div>
+
+  <script>
+    function yesClicked() {
+      document.getElementById("message").innerHTML = `
+        <p>Your girlfriend is very happy now 🥰❤️</p>
+        <p><strong>I love you my betii forever and ever and ever 💖</strong></p>
+      `;
+      document.getElementById("message").classList.remove("hidden");
+    }
+
+    function noClicked() {
+      alert("❌ Invalid response. Kindly try again 😌");
+    }
+
+    // floating hearts & balloons
+    setInterval(() => {
+      const el = document.createElement("div");
+      el.className = "float";
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.animationDuration = (6 + Math.random() * 4) + "s";
+      el.innerHTML = Math.random() > 0.5 ? "❤️" : "🎈";
+      document.body.appendChild(el);
+
+      setTimeout(() => el.remove(), 9000);
+    }, 400);
+  </script>
+
+</body>
+</html>
